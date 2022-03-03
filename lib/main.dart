@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'transaction.dart';
+import 'carder.dart';
 
 void main() => runApp(Home());
 
@@ -22,9 +23,21 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> transaction = [
     Transaction(
-        id: 't1', title: 'กระเพาไก่', amount: 200, date: DateTime.now()),
+        id: 'Menu_1', title: 'กระเพาไก่', amount: 200, date: DateTime.now()),
     Transaction(
-        id: 't2', title: 'กระเพาเป็ด', amount: 220, date: DateTime.now()),
+        id: 'Menu_2', title: 'กระเพาเป็ด', amount: 220, date: DateTime.now()),
+    Transaction(
+        id: 'Menu_3', title: 'หมูสับ', amount: 810, date: DateTime.now()),
+    Transaction(
+        id: 'Menu_4', title: 'อะไรสับ', amount: 999, date: DateTime.now()),
+    Transaction(
+        id: 'Menu_5', title: 'เห็ดสด', amount: 477, date: DateTime.now()),
+    Transaction(
+        id: 'Menu_6', title: 'เห็ดหยังดี', amount: 452, date: DateTime.now()),
+    Transaction(
+        id: 'Menu_7', title: 'หืมอะไรนะ', amount: 534, date: DateTime.now()),
+    Transaction(
+        id: 'Menu_8', title: 'ประยุต', amount: 10, date: DateTime.now()),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,71 +45,18 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text('App Page'),
         ),
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: transaction.map((tx) {
-              return Card(
-                child: Container(
-                  height: 100,
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Expanded(
-                            child: Image.asset("assets/images/t1.png"),
-                            flex: 2,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          alignment: Alignment.topLeft,
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 5,
-                                child: ListTile(
-                                  title: Text(
-                                      '${tx.id} - ${tx.title} - ${tx.amount} บาท'),
-                                  subtitle: Text('${tx.date}'),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 5,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    TextButton(
-                                      child: Text("PLAY"),
-                                      onPressed: () {},
-                                    ),
-                                    SizedBox(
-                                      width: 8,
-                                    ),
-                                    TextButton(
-                                      child: Text("ADD TO QUEUE"),
-                                      onPressed: () {},
-                                    ),
-                                    SizedBox(
-                                      width: 8,
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        flex: 8,
-                      ),
-                    ],
-                  ),
-                ),
-                elevation: 8,
-                margin: EdgeInsets.all(10),
-              );
-            }).toList()));
+        body: SingleChildScrollView(
+          //ทำให้ มัน ไลด์ ได้ เพราะไม่ใช่ list
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextField(),
+                ...transaction.map((tx) {
+                  //...จุดสามตัวข้างหน้า เอา list มา ต่อกัน
+                  return Carder(tx);
+                }).toList()
+              ]),
+        ));
   }
 }
