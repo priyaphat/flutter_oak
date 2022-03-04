@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'question.dart';
+import 'widgets/question.dart';
 
 void main() {
   runApp(Home());
