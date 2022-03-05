@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import '../listed.dart';
 
 class Indexmyapp extends StatelessWidget {
   const Indexmyapp({Key? key}) : super(key: key);
+
+  void navigateToInside(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(Listed.routeName, arguments: {'id': 'xx', 'title': 'yy'});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +45,9 @@ class Indexmyapp extends StatelessWidget {
         SizedBox(height: 20),
         ElevatedButton(
             child: Text('Continue wite Apple'),
-            onPressed: () {},
+            onPressed: () {
+              navigateToInside(context);
+            },
             style:
                 ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 30))),
       ]),

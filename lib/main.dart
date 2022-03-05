@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'listed.dart';
 import 'widgets/widget_myapp.dart';
 
 void main() {
@@ -11,7 +12,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'MyApp',
         // theme: ThemeData(primarySwatch: Colors.green),
-        home: App());
+        // home: App(),
+        initialRoute: '/',
+        routes: {
+          '/': (ctx) => App(),
+          Listed.routeName: (ctx) => Listed(),
+        });
   }
 }
 

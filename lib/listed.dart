@@ -5,10 +5,13 @@ import '../models/transaction.dart';
 void main() => runApp(Listed());
 
 class Listed extends StatelessWidget {
-  const Listed({Key? key}) : super(key: key);
+  static const routeName = '/listed';
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)?.settings.arguments;
+    print("args");
+    print(args);
     return MaterialApp(title: 'listed', home: listbody());
   }
 }
@@ -29,13 +32,13 @@ class _listbodyState extends State<listbody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(),
+        appBar: AppBar(title: Text("Listed")),
         body: SingleChildScrollView(
-      child: Column(
-        children: [
-          ...transaction.map((e) => Carder(e)).toList(),
-        ],
-      ),
-    ));
+          child: Column(
+            children: [
+              ...transaction.map((e) => Carder(e)).toList(),
+            ],
+          ),
+        ));
   }
 }
