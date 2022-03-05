@@ -1,39 +1,33 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
+import 'widgets/widget_myapp.dart';
 
-import 'models/transaction.dart';
-import 'models/carder.dart';
-import 'widgets/labeltransaction.dart';
+void main() {
+  runApp(MyApp());
+}
 
-void main() => runApp(Home());
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter App', home: MyHomePage());
+    return MaterialApp(
+        title: 'MyApp',
+        // theme: ThemeData(primarySwatch: Colors.green),
+        home: App());
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
+class App extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => MyHomePageState();
+  State<App> createState() => _AppState();
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('App Page'),
-        ),
+        // appBar: AppBar(title: Text("MYApp")),
         body: SingleChildScrollView(
-          //ทำให้ มัน ไลด์ ได้ เพราะไม่ใช่ list
-          child: Labeltransaction(),
-        ));
+      //ทำให้ มัน ไลด์ ได้ เพราะไม่ใช่ list
+      child: Indexmyapp(),
+    ));
   }
 }
