@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../listed.dart';
+import '../login.dart';
 
 class Indexmyapp extends StatelessWidget {
   const Indexmyapp({Key? key}) : super(key: key);
@@ -7,6 +8,10 @@ class Indexmyapp extends StatelessWidget {
   void navigateToInside(BuildContext context) {
     Navigator.of(context)
         .pushNamed(Listed.routeName, arguments: {'id': 'xx', 'title': 'yy'});
+  }
+
+  void navigateTologin(BuildContext context) {
+    Navigator.of(context).pushNamed(Login.routeName);
   }
 
   @override
@@ -47,6 +52,16 @@ class Indexmyapp extends StatelessWidget {
             child: Text('Continue wite Apple'),
             onPressed: () {
               navigateToInside(context);
+            },
+            style:
+                ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 30))),
+        ElevatedButton(
+            child: Text('Continue wite Apple'),
+            onPressed: () {
+              navigateTologin(context);
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return Listed();
+              // }));
             },
             style:
                 ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 30))),
